@@ -17,7 +17,7 @@ const useTable = ()=>{
 
 
     const handleSearchCoin=()=>{
-        return coinList.filter(el=> el.name.toLowerCase().includes(search) || el.symbol.toLowerCase().includes(search))
+        return coinList.filter(el=> el.name.toLowerCase().includes(search.toLowerCase()) || el.symbol.toLowerCase().includes(search.toLowerCase()))
     }
 
     const handlePagination=(e,value)=>{

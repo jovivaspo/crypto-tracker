@@ -59,7 +59,7 @@ const Carousel = () => {
   
      const items = trending.map(el => {
          let profit = el.price_change_percentage_24h > 0
-            return (<Link  className={classes.carouselItem} to={`coin/${el.id}`}>
+            return (<Link  className={classes.carouselItem} to={`/crypto-tracker/coin/${el.id}`}>
                 <img className={classes.carouselImg} src={el.image}
                     alt={el.alt}
                     height="80"

@@ -51,7 +51,7 @@ const Header = ({theme, handleTheme}) => {
     return (
         <AppBar position='static' color='transparent' className={classes.appbar}>
             <Toolbar className={classes.toolbar}>
-                <Typography className={classes.title}  onClick={()=>navigate('/')}>Crypto Tracker</Typography>
+                <Typography className={classes.title}  onClick={()=>navigate('/crypto-tracker')}>Crypto Tracker</Typography>
                 <Select variant='outlined' color='secondary' className={classes.select} onChange={handleCoin}>
                     <MenuItem value={'usd'} style={{fontSize:12}}>USD</MenuItem>
                     <MenuItem value={'eur'} style={{fontSize:12}}>EUR</MenuItem>

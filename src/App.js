@@ -39,8 +39,8 @@ function App() {
       <Router>
         <Header theme={themeModal} handleTheme={handleTheme} />
         <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='coin/:id' element={<PageCoin />} />
+          <Route path='/crypto-tracker' element={<Home/>} />
+          <Route path='/crypto-tracker/coin/:id' element={<PageCoin />} />
         </Routes>
       </Router>
     </ThemeProvider>

@@ -28,6 +28,25 @@ const useStyles = makeStyles((theme)=>({
             fontWeight:'normal',
             padding:'10px 2px'
         }
+    },
+
+    pagination:{
+
+        display:'flex', 
+        justifyContent:'center',
+        margin:30,
+
+        [theme.breakpoints.down('xs')]:{
+
+            display:'flex',
+            flexDirection:'row',
+            justifyContent:'center',
+           
+            width:'100%',
+            margin:0,
+            marginTop:10,
+            marginBottom:10
+        }
     }
 
    
@@ -70,7 +89,7 @@ const TableCoin = () => {
                                 handleSearchCoin().slice(page*10-10,page*10).map(el=>{
                                     let profit = el.price_change_percentage_24h > 0
                                     return (
-                                        <TableRow onClick={()=>navigate(`coin/${el.id}`)}>
+                                        <TableRow onClick={()=>navigate(`/crypto-tracker/coin/${el.id}`)}>
                                             <TableCell className={classes.tableBodyCell} style={{display:'flex', alignItems:'center'}} align='left'><img src={el.image} height='40' style={{marginRight:10}}/><span>{el.symbol}</span></TableCell>
                                             <TableCell className={classes.tableBodyCell} align='center'>{numberWithCommas(el.current_price) + ' ' + symbol}</TableCell>
                                             {profit? <TableCell className={classes.tableBodyCell} align='center' style={{color:'green'}}><span>+ {numberWithCommas(el.price_change_percentage_24h.toFixed(2))} %</span></TableCell> :
@@ -83,7 +102,7 @@ const TableCoin = () => {
                         </TableBody>
                     </Table>
                 </TableContainer>) }
-                <Pagination style={{display:'flex', justifyContent:'center',margin:30}}count={10} onChange={handlePagination}/>
+                <Pagination className={classes.pagination} count={10} onChange={handlePagination}/>
            </Container>
        </div>
     )
