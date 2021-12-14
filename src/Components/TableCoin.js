@@ -91,7 +91,7 @@ const TableCoin = () => {
                                     return (
                                         <TableRow onClick={()=>navigate(`/crypto-tracker/coin/${el.id}`)}>
                                             <TableCell className={classes.tableBodyCell} style={{display:'flex', alignItems:'center'}} align='left'><img src={el.image} height='40' style={{marginRight:10}}/><span>{el.symbol}</span></TableCell>
-                                            <TableCell className={classes.tableBodyCell} align='center'>{numberWithCommas(el.current_price) + ' ' + symbol}</TableCell>
+                                            <TableCell className={classes.tableBodyCell} align='center'>{numberWithCommas(el.current_price.toFixed(2)) + ' ' + symbol}</TableCell>
                                             {profit? <TableCell className={classes.tableBodyCell} align='center' style={{color:'green'}}><span>+ {numberWithCommas(el.price_change_percentage_24h.toFixed(2))} %</span></TableCell> :
                                             <TableCell className={classes.tableBodyCell} align='center' style={{color:'red'}}><span>{numberWithCommas(el.price_change_percentage_24h.toFixed(2))} %</span></TableCell>}
                                             <TableCell className={classes.tableBodyCell} align='center'>{numberWithCommas(el.market_cap.toString().slice(0,-6)) + 'M'}</TableCell>
