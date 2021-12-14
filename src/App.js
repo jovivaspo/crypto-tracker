@@ -1,24 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from '@material-ui/core';
+import { createTheme } from '@material-ui/core/styles'
+import React, { useState } from 'react'
+import Header from './Components/Header'
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import PageCoin from './Pages/PageCoin';
+import Home from './Pages/Home'
+
+
 
 function App() {
+
+  const [themeModal, setThemeModal] = useState('light')
+
+  const handleTheme = () => {
+    themeModal === 'light' ? setThemeModal('dark') : setThemeModal('light')
+  }
+
+  const theme = createTheme({
+    palette: {
+      type: themeModal === 'light' ? 'light' : 'dark',
+
+      primary: { main: themeModal === 'light' ? '#fafafa' : '#212121' },
+
+      secondary: { main: themeModal === 'light' ? '#212121' : '#ccc'}, /*'#ffb300' */
+
+      background: { paper: themeModal === 'light' ? '#fafafa' : '#212121' }
+
+    },
+
+    typography: { fontFamily: "Montserrat" }
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Header theme={themeModal} handleTheme={handleTheme} />
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='coin/:id' element={<PageCoin />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
+
+
+
   );
 }
 
