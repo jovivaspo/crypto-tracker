@@ -4,6 +4,7 @@ import { CoinContext } from '../Context/CoinContext'
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import {useNavigate} from 'react-router-dom'
+import ModalLogin from './ModalLogin';
 
 
 
@@ -61,6 +62,7 @@ const Header = ({theme, handleTheme}) => {
                         theme === 'dark'? (<Brightness7Icon/>) : (<Brightness3Icon/>) 
                     }
                 </IconButton>
+                <ModalLogin/>
             </Toolbar>
 
         </AppBar>
