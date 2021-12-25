@@ -32,7 +32,6 @@ const Login = ({handleClose}) => {
             <TextField className={classes.input} name='password' type='password' placeholder='Input Password'value={form.password} onChange={handleChange}/>
             <Button type='submit' variant='contained'style={{fontWeight:600}}>Login</Button>
             </form>
-           
         </Box>
     )
 }

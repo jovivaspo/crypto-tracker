@@ -5,6 +5,7 @@ const CoinContext = createContext()
 const CoinProvider = ({children})=>{
     const [coin,setCoin] = useState('usd')
     const [symbol, setSymbol] = useState('$')
+    const [user,setUser] = useState(null)
 
     const handleCoin = (e) =>{
         setCoin(e.target.value)
@@ -12,7 +13,7 @@ const CoinProvider = ({children})=>{
         
     }
 
-    const data ={coin, handleCoin, symbol}
+    const data ={coin, handleCoin, symbol, user, setUser}
 
     return(
         <CoinContext.Provider value={data}>{children}</CoinContext.Provider>

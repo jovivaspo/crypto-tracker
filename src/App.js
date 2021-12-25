@@ -6,6 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import PageCoin from './Pages/PageCoin';
 import Home from './Pages/Home'
+import Alert from './Components/Alert';
 
 
 
@@ -42,6 +43,7 @@ function App() {
           <Route path='/crypto-tracker' element={<Home/>} />
           <Route path='/crypto-tracker/coin/:id' element={<PageCoin />} />
         </Routes>
+        <Alert/>
       </Router>
     </ThemeProvider>
 
