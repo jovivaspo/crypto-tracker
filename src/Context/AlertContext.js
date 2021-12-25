@@ -6,8 +6,8 @@ const AlertContext = createContext()
 const AlertProvider = ({children})=>{
     
     const [alert, setAlert] = useState({
-        open:true,
-        message:'aaaaaaaaaaaaa',
+        open:false,
+        message:'',
         type:'success'
     })
 

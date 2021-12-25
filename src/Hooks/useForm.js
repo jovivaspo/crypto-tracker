@@ -18,6 +18,8 @@ const useForm = (initialForm, handleClose)=>{
 
         e.preventDefault()
 
+        console.log(form)
+
         !form.confirmPassword? handleLogin(form)  : handleSingIn(form)
       
         handleClose()

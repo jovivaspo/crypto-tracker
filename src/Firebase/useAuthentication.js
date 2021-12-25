@@ -7,12 +7,15 @@ const useAuthentication =()=>{
 
     const {alert, setAlert} = useContext(AlertContext)
 
+
     const handleSingIn = async (form) => {
+
+       console.log('SiGNiN')
     
-        const { email, password, comfirmPassword } = form
+        const { email, password, confirmPassword } = form
        
     
-        if (password !== comfirmPassword) {
+        if (password !== confirmPassword) {
             alert('Passwords do not match')
             return false
         }
@@ -38,6 +41,8 @@ const useAuthentication =()=>{
     }
     
     const handleLogin = async (form) => {
+
+        console.log('LOGIN')
     
         const { email, password } = form
     

@@ -23,7 +23,7 @@ const SignIn = ({handleClose}) => {
     const initialForm={
         email:'',
         password:'',
-        comfirmPassword:''
+        confirmPassword:''
     }
 
     const {form, handleChange, handleSubmit} = useForm(initialForm, handleClose)
@@ -33,7 +33,7 @@ const SignIn = ({handleClose}) => {
             <form className={classes.singin} autoComplete='off' onSubmit={handleSubmit}>
                 <TextField className={classes.input} name='email' type='email' placeholder='Input Email' value={form.email} onChange={handleChange} required/>
                 <TextField className={classes.input} name='password' type='password' placeholder='Input Password' value={form.password} onChange={handleChange} required/>
-                <TextField className={classes.input} name='comfirmPassword' type='password' placeholder='Confirm Password' value={form.comfirmPassword} onChange={handleChange} required/>
+                <TextField className={classes.input} name='confirmPassword' type='password' placeholder='Confirm Password' value={form.confirmPassword} onChange={handleChange} required/>
                 <Button type='submit' variant='contained' style={{ fontWeight: 600 }}>Sing In</Button>
             </form>
 
