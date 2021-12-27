@@ -6,7 +6,7 @@ import Brightness7Icon from '@material-ui/icons/Brightness7';
 import {useNavigate} from 'react-router-dom'
 import ModalLogin from './ModalLogin';
 import { UserContext } from '../Context/UserContext';
-import useAuthentication from '../Firebase/useAuthentication';
+import DrawPerfil from './DrawPerfil';
 
 
 
@@ -49,7 +49,7 @@ const Header = ({theme, handleTheme}) => {
 
     const {coin, handleCoin} = useContext(CoinContext)
     const {user} = useContext(UserContext)
-    const {handleLogOut} = useAuthentication()
+    
     
 
     console.log(coin)
@@ -67,7 +67,7 @@ const Header = ({theme, handleTheme}) => {
                         theme === 'dark'? (<Brightness7Icon/>) : (<Brightness3Icon/>) 
                     }
                 </IconButton>
-               {user? <Button onClick={handleLogOut} variant='contained' style={{ fontWeight: 'bold', fontSize: 14, marginLeft: 5, marginRight: 5 }}>LogOut</Button>
+               {user? <DrawPerfil />
                : <ModalLogin/>} 
             </Toolbar>
 

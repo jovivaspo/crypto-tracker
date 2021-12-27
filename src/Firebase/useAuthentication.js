@@ -2,10 +2,12 @@ import { auth } from "./firebaseApp";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { AlertContext } from "../Context/AlertContext";
 import React, {useContext} from 'react'
+import { useNavigate } from "react-router-dom";
 
 const useAuthentication =()=>{
 
     const {alert, setAlert} = useContext(AlertContext)
+    const navigate = useNavigate()
 
 
     const handleSingIn = async (form) => {
@@ -71,6 +73,8 @@ const useAuthentication =()=>{
             message:`Log Out. See you soon`,
             type:'success'
         })
+        navigate('/crypto-tracker')
+       
     }
     
     

@@ -18,7 +18,7 @@ const useCoin =(id)=>{
     useEffect(()=>{
         getData(SingleCoin(id))
         .then(res=>{
-            console.log(res)
+            //console.log(res)
            
                const data ={
                     id:res.id,
@@ -61,7 +61,7 @@ const useCoin =(id)=>{
             })
     },[id,coin,info])
 
-    console.log(currency)
+    //console.log(currency)
 
     return {loading,currency,info,handleInfo}
 }

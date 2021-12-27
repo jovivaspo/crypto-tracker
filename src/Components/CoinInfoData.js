@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Typography, makeStyles, Container, Button, CircularProgress, Switch } from '@material-ui/core'
+import { Typography, makeStyles, Container, Button, CircularProgress, Switch, IconButton } from '@material-ui/core'
 import { useParams } from 'react-router-dom'
 import { useCoin } from '../Hooks/useCoin'
 import { CoinContext } from '../Context/CoinContext'
@@ -11,6 +11,9 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import ReactHtmlParser from 'react-html-parser'
 import { SentimentDissatisfied } from '@material-ui/icons'
+import {UserContext} from '../Context/UserContext'
+import { AlertContext } from '../Context/AlertContext'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -142,10 +145,9 @@ const CoinInfoData = () => {
     const classes = useStyles()
     const { currency, loading, info, handleInfo } = useCoin(id)
     const { coin, symbol } = useContext(CoinContext)
+    const {user, watchlist, handleRemoveCoin, handleAddCoin} = useContext(UserContext)
+    const {setAlert} = useContext(AlertContext)
 
-    console.log(info)
-
-    console.log(currency, loading)
 
     return (
 
@@ -160,6 +162,8 @@ const CoinInfoData = () => {
                         <Button variant='outlined' data-id='general' onClick={handleInfo} className={info === 'general' ? classes.selected : classes.button}>General</Button>
                         <Button variant='outlined' data-id='market_data' onClick={handleInfo} className={info === 'market_data' ? classes.selected : classes.button}>Market Data</Button>
                         <Button variant='outlined' data-id='social' onClick={handleInfo} className={info === 'social' ? classes.selected : classes.button}>Social</Button>
+                        {user && watchlist?.includes(currency.id) && <Button className={classes.button} onClick={()=>handleRemoveCoin(currency.id,setAlert)}>Remove WatchList</Button>}
+                        {user && !watchlist?.includes(currency.id) && <Button className={classes.button} onClick={()=>handleAddCoin(currency.id,setAlert)}>Add WatchList</Button>}   
                     </div>
 
                     <div className={classes.containerInfo}>
